@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import style from "../../static/styles/style.scss";
 import InTheaterBox from "./movies/inTheater";
+import PopularMovies from "./movies/popular";
 import SearchBar from "./ui/searchBar";
 
 const app = () => {
@@ -25,6 +26,7 @@ const app = () => {
         <Header textAlign="left" as="h2">
           Popular Movies
         </Header>
+        <PopularMovies />
       </Segment>
     </Container>
   );
