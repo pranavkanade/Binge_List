@@ -1,19 +1,27 @@
 import { BASEAPI, APIKEY } from "../../global.config";
+import { fetchData } from "./generic";
+
+// Here will only assemble the URL addresses to get the desired data
 
 export const getMoviesNowPlaying = async (pageNum, storeMoviesNowPlaying) => {
   const APIENDPOINT = "/movie/now_playing";
   const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
   const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
   try {
-    const moviesNowPlaying = await fetch(URL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data = await moviesNowPlaying.json();
+    const data = await fetchData(URL);
     storeMoviesNowPlaying(data.results);
-    // return data;
+  } catch (err) {
+    console.log("An error has occured when fetching movies now playing");
+  }
+};
+
+export const getPopularMovies = async (pageNum, storePopularMovies) => {
+  const APIENDPOINT = "/movie/popular";
+  const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
+  const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
+  try {
+    const data = await fetchData(URL);
+    storePopularMovies(data.results, data.total_pages);
   } catch (err) {
     console.log("An error has occured when fetching movies now playing");
   }
@@ -24,15 +32,8 @@ export const getDetailedMovie = async (movieId, storeMovieDetails) => {
   const queryString = `?api_key=${APIKEY}&language=en-US`;
   const URL = `${BASEAPI}${apiEndpoint}${queryString}`;
   try {
-    const movieDetails = await fetch(URL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data = await movieDetails.json();
+    const data = await fetchData(URL);
     storeMovieDetails(data);
-    // return data;
   } catch (err) {
     console.log("An error has occured when fetching movie details");
   }
@@ -43,33 +44,11 @@ export const getMovieCredits = async (movieId, storeMovieCast) => {
   const queryString = `?api_key=${APIKEY}`;
   const URL = `${BASEAPI}${apiEndpoint}${queryString}`;
   try {
-    const movieCredits = await fetch(URL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const data = await movieCredits.json();
+    const data = await fetchData(URL);
     if (data.cast) {
       storeMovieCast(data.cast);
     }
-    // return data;
   } catch (err) {
     console.log("An error has occured when fetching movie credits");
   }
 };
-
-// export const logoutHandler = async event => {
-//   try {
-//     const logoutRes = await fetch(URLS.USERLOGOUT, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: getAuthorization()
-//       }
-//     });
-//     const data = await logoutRes.json();
-//     // remove if any thing is remaining of the previous user
-//     removeUserFromLocalStorage();
-//   } catch (err) {}
-// };
