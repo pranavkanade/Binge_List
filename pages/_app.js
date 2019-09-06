@@ -1,6 +1,7 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Head from "../src/generic/head";
+import Layout from "../src/components/layout/layout";
 
 class BLApp extends App {
   render() {
@@ -8,7 +9,9 @@ class BLApp extends App {
     return (
       <Container>
         <Head />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Container>
     );
   }
