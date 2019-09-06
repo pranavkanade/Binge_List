@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Segment, Message, Header, Card } from "semantic-ui-react";
-import MovieCard from "./ui/movieCard";
-import { getMoviesNowPlaying } from "../api/movies";
-import Loader from "./ui/loader";
+import MovieCard from "../ui/movieCard";
+import { getMoviesNowPlaying } from "../../api/movies";
+import Loader from "../ui/loader";
 
 class InTheatersBox extends Component {
   state = {
@@ -17,8 +17,8 @@ class InTheatersBox extends Component {
         </Message>
       );
     }
-    const movieCards = this.state.moviesNowPlaying.map(movie => {
-      return <MovieCard movie={movie} />;
+    const movieCards = this.state.moviesNowPlaying.slice(0, 4).map(movie => {
+      return <MovieCard movie={movie} key={movie.id} />;
     });
 
     return <>{movieCards}</>;
@@ -27,13 +27,15 @@ class InTheatersBox extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header attached="top" as="h2" textAlign="left">
-          In Theaters Now !
+        <Header as="h2" textAlign="left">
+          Most popular pics, in Theaters Now!
+          <Button floated="right">Show All</Button>
         </Header>
-        <Segment attached>
+        <Segment basic>
           {this.state.moviesNowPlaying ? (
             <Card.Group itemsPerRow={4}>{this.renderMovieCards()}</Card.Group>
           ) : (
+            // If data is yet to be fetched; Show loader
             <Loader />
           )}
         </Segment>
@@ -41,10 +43,13 @@ class InTheatersBox extends Component {
     );
   }
 
-  async componentDidMount() {
-    const result = await getMoviesNowPlaying();
-    const moviesNowPlaying = result.results;
-    this.setState({ moviesNowPlaying: moviesNowPlaying });
+  storeMoviesNowPlaying = moviesNowPlaying => {
+    this.setState({ moviesNowPlaying });
+  };
+
+  componentDidMount() {
+    // Making this async call
+    getMoviesNowPlaying(1, this.storeMoviesNowPlaying);
   }
 }
 

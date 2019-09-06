@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { getDetailedMovie, getMovieCredits } from "../api/movies";
+import { getDetailedMovie, getMovieCredits } from "../../api/movies";
 import {
   Segment,
   Dimmer,
@@ -16,7 +16,7 @@ import {
   Button
 } from "semantic-ui-react";
 
-import Loader from "./ui/loader";
+import Loader from "../ui/loader";
 
 class Detailed extends Component {
   state = {
