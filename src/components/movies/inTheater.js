@@ -28,7 +28,7 @@ class InTheatersBox extends Component {
     return (
       <React.Fragment>
         <Header as="h2" textAlign="left">
-          Most popular pics, in Theaters Now!
+          Latest movies in Theaters Now!
           <Button floated="right">Show All</Button>
         </Header>
         <Segment basic>
