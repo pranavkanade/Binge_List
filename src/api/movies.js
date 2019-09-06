@@ -1,6 +1,6 @@
 import { BASEAPI, APIKEY } from "../../global.config";
 
-export const getMoviesNowPlaying = async pageNum => {
+export const getMoviesNowPlaying = async (pageNum, storeMoviesNowPlaying) => {
   const APIENDPOINT = "/movie/now_playing";
   const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
   const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
@@ -12,7 +12,8 @@ export const getMoviesNowPlaying = async pageNum => {
       }
     });
     const data = await moviesNowPlaying.json();
-    return data;
+    storeMoviesNowPlaying(data.results);
+    // return data;
   } catch (err) {
     console.log("An error has occured when fetching movies now playing");
   }
