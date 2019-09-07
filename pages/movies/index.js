@@ -51,7 +51,7 @@ const movies = props => {
   return (
     <Segment basic>
       <Header as="h2">Welcome to TMDB's movie catalog</Header>
-      <Segment basic>
+      <Segment attached color="orange" padded="very">
         <Header>Filter Movies By Category :</Header>
         <Dropdown
           placeholder="Select Category"

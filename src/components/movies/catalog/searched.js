@@ -38,7 +38,10 @@ class SearchResults extends React.Component {
     return (
       <>
         <Header>
-          Showing search results for "{this.props.latestSearchTerm}"
+          Showing search results for{" "}
+          <span style={{ color: "orange" }}>
+            "{this.props.latestSearchTerm}"
+          </span>
         </Header>
         <Segment textAlign="center" basic>
           <Pagination

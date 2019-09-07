@@ -39,7 +39,7 @@ const getApiRequest = category => {
 export default props => {
   return (
     <>
-      <Header>{props.category}</Header>
+      <Header as="h2">{props.category}</Header>
       <Segment textAlign="center" basic>
         <MovieCollection
           getRequestedMovies={getApiRequest(props.category)}
