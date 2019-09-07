@@ -15,9 +15,7 @@ const MovieCard = props => (
         ui={false}
       />
       <Card.Content extra>
-        <a>
-          <Header as="h4">{props.movie.title}</Header>
-        </a>
+        <Header as="h4">{props.movie.title}</Header>
       </Card.Content>
     </Card>
   </Link>

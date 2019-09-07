@@ -7,7 +7,7 @@ export default props => {
     <Pagination
       activePage={activePage}
       onPageChange={props.handlePaginationChange}
-      size="medium"
+      size="large"
       totalPages={totalPages}
     />
   );

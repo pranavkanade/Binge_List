@@ -53,7 +53,7 @@ class SearchBar extends Component {
 
   formatNStoreResults = results => {
     const formattedResults = results.map(res => ({
-      movId: res.id,
+      movieid: res.id,
       title: res.title,
       image: `https://image.tmdb.org/t/p/w300${res.poster_path}`,
       rating: `${res.vote_average}/10`
@@ -80,13 +80,14 @@ class SearchBar extends Component {
     }
     this.props.storeLatestSearchResults({
       latestSearchTerm: this.state.searchValue,
-      searchResults: data.results
+      searchResults: data.results,
+      totalPages: data.total_pages
     });
   };
 
-  searchResultRenderer = ({ movId, image, rating, title }) => (
+  searchResultRenderer = ({ movieid, image, rating, title }) => (
     <div>
-      <Link key={movId} href="/movies/[movId]" as={`/movies/${movId}`}>
+      <Link key={movieid} href="/movies/[movId]" as={`/movies/${movieid}`}>
         <div>
           {image && (
             <div key="image" className="image">
