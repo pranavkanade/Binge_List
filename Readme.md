@@ -29,13 +29,14 @@ npm run start
 
 ## Code Arrangement
 
-1.  You are going to find code in following three dirs:
+1.  You are going to find code in following three(mostly first two) dirs:
 
     - `/pages`
     - `/src`
+    - `/static` : Useful for storing files like stylesheets and images etc. For the project mostly used inline css.
 
 2.  `/pages` dir:
-    This directory houses all the pages that developer wants to display. `NextJs` renders all the files in here create link for each one. The \*URL pattern mimics the directory pattern of the all the files and dirs under `/pages`.
+    This directory houses all the pages that developer wants to display. `NextJs` renders all the files in here and creates a link for every file. The *URL pattern mimics the directory structure of the all the files and dirs under `/pages`*.
     **E.g.**
 
     - `test.com` ---> `/pages/index.js`
@@ -48,18 +49,18 @@ npm run start
 
     b. `generic`: Exteremly generic code that we are going to use only once, still putting it in separate component will help and so it is here.
 
-    c. `api`: All async api request functions can be found in this dir. For the project we are only making `GET` calls so I've extracted a generic fetch method and reused it for all other requests.
+    c. `api`: All async api request functions can be found in this dir. For the project we are only going to make `GET` calls so I've extracted a generic fetch method and reused it for all other requests.
 
     d. `components`: Contains all the required components.
 
     - `layout`: used to build a uniform layout for the project. Menubar, Footer and Searchbar is there.
-    - `ui`: this dir has all the reusable ui components used throught the projects.
+    - `ui`: this dir has all the reusable ui components used throughtout the projects.
     - `movies`:
       - `detailed.js`: To present movie details at `/movies/:movieId`
       - `catalog/`: Used to put together components used in creating **Movie catalog** page at `/movies`
     - `index/`: Contains all the code for `/`.
-      - `inTheater.js`: A small component to showcase **movies in theaters** (preview)
-      - `popular.js`: Component used to showcase a pageful **popular** movies, with option to browse all of them.
+      - `inTheater.js`: A small component to showcase **movies in theaters** (preview kind of thing on index page)
+      - `popular.js`: Component used to showcase a pageful of **popular** movies, with option to browse all of them.
     - `profile.js`: This component code for profile of an artist.
 
 ### Note
