@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Segment,
-  Container,
-  Header,
-  Card,
-  Search,
-  Grid,
-  Icon
-} from "semantic-ui-react";
+import { Segment, Container, Header, Grid, Icon } from "semantic-ui-react";
 import Link from "next/link";
 import style from "../../static/styles/style.scss";
 import InTheaterBox from "./movies/inTheater";
@@ -29,7 +20,12 @@ const app = () => {
             </Grid.Column>
             <Grid.Column width="4" textAlign="left">
               {isSearched ? (
-                <Link>
+                <Link
+                  href={{
+                    pathname: "/movies",
+                    query: { key: "searched" }
+                  }}
+                  as="/movies#searched">
                   <a style={{ cursor: "pointer" }}>
                     Show All search results <Icon name="arrow right" />
                   </a>
