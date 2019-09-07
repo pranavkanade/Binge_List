@@ -17,7 +17,6 @@ class MovieCollection extends Component {
   };
 
   render() {
-    console.log("Rendering new movie categroy", this.props);
     return (
       <Listing
         {...this.state}
