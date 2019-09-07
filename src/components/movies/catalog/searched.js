@@ -49,18 +49,6 @@ class SearchResults extends React.Component {
     );
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.props.latestSearchTerm !== nextProps.latestSearchTerm ||
-      this.state.activePage !== nextState.activePage ||
-      this.state.moviesList !== nextState.moviesList
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   componentDidUpdate(prevProps, prevState) {
     // Update the movie results when search Query is changed.
     // The redux props have the latest data from searchbar so check the state against it

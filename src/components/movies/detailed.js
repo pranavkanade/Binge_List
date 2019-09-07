@@ -21,7 +21,8 @@ class Detailed extends Component {
   state = {
     currentMovie: null,
     currentMovieCast: null,
-    showAllCast: false
+    showAllCast: false,
+    currentMovieId: this.props.movieId
   };
 
   renderGenres = () => {
@@ -168,6 +169,15 @@ class Detailed extends Component {
     );
   }
 
+  // on props update fetch the details of a new movie
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.movieId != this.state.currentMovieId) {
+      this.setState({ currentMovieId: this.props.movieId });
+      getDetailedMovie(this.props.movieId, this.storeMovieDetails);
+      getMovieCredits(this.props.movieId, this.storeMovieCast);
+    }
+  }
+
   storeMovieDetails = currentMovie => {
     this.setState({ currentMovie: currentMovie });
   };
@@ -176,6 +186,7 @@ class Detailed extends Component {
     this.setState({ currentMovieCast });
   };
 
+  // fetching details of the movie
   componentDidMount() {
     getDetailedMovie(this.props.movieId, this.storeMovieDetails);
     getMovieCredits(this.props.movieId, this.storeMovieCast);

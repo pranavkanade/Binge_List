@@ -29,18 +29,6 @@ class MovieCollection extends Component {
     this.setState({ moviesList, totalPages });
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.props.category !== nextProps.category ||
-      this.state.activePage !== nextState.activePage ||
-      this.state.moviesList !== nextState.moviesList
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   componentDidUpdate(prevProps, prevState) {
     // Update the movie results when category is changed.
     if (this.props.category !== prevProps.category) {
