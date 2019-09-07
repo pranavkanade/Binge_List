@@ -1,5 +1,7 @@
 import React from "react";
 import App, { Container } from "next/app";
+import { Provider } from "react-redux";
+import { initializeBLStore } from "../src/redux/store";
 import Head from "../src/generic/head";
 import Layout from "../src/components/layout/layout";
 
@@ -9,9 +11,11 @@ class BLApp extends App {
     return (
       <Container>
         <Head />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={initializeBLStore()}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
       </Container>
     );
   }
