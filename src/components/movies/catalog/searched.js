@@ -1,5 +1,5 @@
 import React from "react";
-import Listing from "./listing";
+import Listing from "../../ui/listing";
 import { getMovieSearch } from "../../../api/search";
 import { Segment, Header } from "semantic-ui-react";
 import { connect } from "react-redux";

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button, Segment, Header } from "semantic-ui-react";
 import { getMoviesNowPlaying } from "../../api/movies";
 import Loader from "../ui/loader";
-import Listing from "../movies/catalog/listing";
+import Listing from "../ui/listing";
 
 const NOW_PLAYING = "Now Playing";
 const DEFAULT_MOVIE_COUNT = 4;

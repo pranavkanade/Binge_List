@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Listing from "./listing";
+import Listing from "../../ui/listing";
 import Pagination from "../../ui/pagination";
 
 const DEFAULTACTIVEPAGE = 1;

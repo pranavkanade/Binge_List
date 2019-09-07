@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getPopularMovies } from "../../api/movies";
-import Listing from "../movies/catalog/listing";
+import Listing from "../ui/listing";
 import { Button, Segment, Icon } from "semantic-ui-react";
 import Loader from "../ui/loader";
 
