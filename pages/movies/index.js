@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import { Segment, Header, Dropdown } from "semantic-ui-react";
 import MovieCatalog from "../../src/components/movies/catalog/catalog";
 import MovieSearched from "../../src/components/movies/catalog/searched";
@@ -39,15 +38,18 @@ const renderFullSearchResult = searchQuery => {
 };
 
 const movies = props => {
-  const [selectedCategory, setSelectedCategory] = useState(DEFAULTCATEGORY);
   const router = useRouter();
   const { searched } = router.query;
   if (searched) {
     return renderFullSearchResult(searched);
   }
+  const { category } = router.query;
+  const [selectedCategory, setSelectedCategory] = useState(
+    category ? category : DEFAULTCATEGORY
+  );
   return (
     <Segment basic>
-      <Header as="h2">Welcome to movies' catalog</Header>
+      <Header as="h2">Welcome to TMDB's movie catalog</Header>
       <Segment basic>
         <Header>Filter Movies By Category :</Header>
         <Dropdown

@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import Link from "next/link";
 import { Button, Segment, Message, Header, Card } from "semantic-ui-react";
 import MovieCard from "../ui/movieCard";
 import { getMoviesNowPlaying } from "../../api/movies";
 import Loader from "../ui/loader";
+
+const NOW_PLAYING = "Now Playing";
 
 class InTheatersBox extends Component {
   state = {
@@ -29,7 +32,15 @@ class InTheatersBox extends Component {
       <React.Fragment>
         <Header as="h2" textAlign="left">
           Available in Theaters Now!
-          <Button floated="right">Show All</Button>
+          <Link
+            href={{
+              pathname: "/movies",
+              query: { category: NOW_PLAYING }
+            }}>
+            <Button floated="right" basic>
+              Show All
+            </Button>
+          </Link>
         </Header>
         <Segment basic>
           {this.state.moviesNowPlaying ? (
