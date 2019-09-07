@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getPopularMovies } from "../../api/movies";
-import Listing from "./catalog/listing";
+import Listing from "../movies/catalog/listing";
 import { Button, Segment, Icon } from "semantic-ui-react";
 import Loader from "../ui/loader";
 
@@ -50,7 +50,7 @@ class PopularMovies extends Component {
     return (
       <>
         <Listing moviesList={this.processMovieList()} />
-        <Segment basic>
+        <Segment basic textAlign="center">
           <Button
             color="red"
             disabled={this.state.showCount <= DEFAULT_NUM}

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Segment, Container, Header, Button } from "semantic-ui-react";
-import style from "../../static/styles/style.scss";
-import InTheaterBox from "./movies/inTheater";
-import PopularMovies from "./movies/popular";
+import InTheaterBox from "./inTheater";
+import PopularMovies from "./popular";
 import Link from "next/link";
 
 const POPULAR = "Popular";
 
 const app = () => {
   return (
-    <Container className={style.App}>
+    <Container className="App">
       <Segment color="teal" basic secondary padded>
         <InTheaterBox />
       </Segment>
