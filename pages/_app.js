@@ -1,7 +1,7 @@
 import React from "react";
 import App from "next/app";
 import { Provider } from "react-redux";
-import { initializeBLStore } from "../src/redux/store";
+import { getOrCreateStore } from "../src/redux/withStore";
 import Head from "../src/generic/head";
 import Layout from "../src/components/layout/layout";
 
@@ -11,7 +11,7 @@ class BLApp extends App {
     return (
       <>
         <Head />
-        <Provider store={initializeBLStore()}>
+        <Provider store={getOrCreateStore()}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
