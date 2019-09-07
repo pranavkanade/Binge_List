@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Segment, Message, Card } from "semantic-ui-react";
-import MovieCard from "../ui/movieCard";
-import Loader from "../ui/loader";
-import Pagination from "../ui/pagination";
+import MovieCard from "../../ui/movieCard";
+import Loader from "../../ui/loader";
+import Pagination from "../../ui/pagination";
 
 const NUM_OF_MOVIES_IN_A_ROW = 4;
 

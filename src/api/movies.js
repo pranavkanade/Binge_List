@@ -9,7 +9,7 @@ export const getMoviesNowPlaying = async (pageNum, storeMoviesNowPlaying) => {
   const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
   try {
     const data = await fetchData(URL);
-    storeMoviesNowPlaying(data.results);
+    storeMoviesNowPlaying(data.results, data.total_pages);
   } catch (err) {
     console.log("An error has occured when fetching movies now playing");
   }
@@ -24,6 +24,42 @@ export const getPopularMovies = async (pageNum, storePopularMovies) => {
     storePopularMovies(data.results, data.total_pages);
   } catch (err) {
     console.log("An error has occured when fetching movies now playing");
+  }
+};
+
+export const getTopRatedMovies = async (pageNum, storeMovies) => {
+  const APIENDPOINT = "/movie/top_rated";
+  const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
+  const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
+  try {
+    const data = await fetchData(URL);
+    storeMovies(data.results, data.total_pages);
+  } catch (err) {
+    console.log("An error has occured when fetching movies top rated");
+  }
+};
+
+export const getUpcomingMovies = async (pageNum, storeMovies) => {
+  const APIENDPOINT = "/movie/upcoming";
+  const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
+  const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
+  try {
+    const data = await fetchData(URL);
+    storeMovies(data.results, data.total_pages);
+  } catch (err) {
+    console.log("An error has occured when fetching movies upcoming");
+  }
+};
+
+export const getLatestMovies = async (pageNum, storeMovies) => {
+  const APIENDPOINT = "/movie/latest";
+  const queryString = `?api_key=${APIKEY}&language=en-US&page=${pageNum}`;
+  const URL = `${BASEAPI}${APIENDPOINT}${queryString}`;
+  try {
+    const data = await fetchData(URL);
+    storeMovies(data.results, data.total_pages);
+  } catch (err) {
+    console.log("An error has occured when fetching movies latest");
   }
 };
 
