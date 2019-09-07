@@ -11,7 +11,8 @@ import {
   Message,
   Statistic,
   ImageGroup,
-  Button
+  Button,
+  Divider
 } from "semantic-ui-react";
 
 import Loader from "../ui/loader";
@@ -70,7 +71,7 @@ class Detailed extends Component {
 
   renderCastMembers = () => {
     if (!this.state.currentMovieCast) {
-      return null;
+      return <Loader />;
     }
 
     let currentMovieCast = null;
@@ -148,15 +149,20 @@ class Detailed extends Component {
           <Header>Overview</Header>
           <Message info>{currentMovie.overview}</Message>
           <br />
-          <Header as="h2">Cast</Header>
-          {this.renderCastMembers()}
-          <Button
-            floated="right"
-            onClick={() =>
-              this.setState({ showAllCast: !this.state.showAllCast })
-            }>
-            {this.state.showAllCast ? "Show Less" : "Show All"}
-          </Button>
+          <Segment textAlign="center" basic>
+            <Header as="h2">Cast</Header>
+            {this.renderCastMembers()}
+            <Divider hidden />
+            <Button
+              basic
+              size="large"
+              color="blue"
+              onClick={() =>
+                this.setState({ showAllCast: !this.state.showAllCast })
+              }>
+              {this.state.showAllCast ? "Show Less" : "Show All"}
+            </Button>
+          </Segment>
         </Segment>
       </>
     );
