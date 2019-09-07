@@ -61,3 +61,7 @@ npm run start
       - `inTheater.js`: A small component to showcase **movies in theaters** (preview)
       - `popular.js`: Component used to showcase a pageful **popular** movies, with option to browse all of them.
     - `profile.js`: This component code for profile of an artist.
+
+### Note
+
+> Extensive testing has not been done yet so, there is a chance that the code might break. Also errors from apis are thrown to the console.
