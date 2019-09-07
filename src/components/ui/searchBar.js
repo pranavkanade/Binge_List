@@ -48,7 +48,7 @@ class SearchBar extends Component {
     this.setState({ searchValue: value, results: null });
     // console.log("Changed Search : ", value);
     this.unsetIsLoadingWithSearchMessage();
-    this.props.setIsSearched(false);
+    this.props.setSearchQuery(null);
   };
 
   formatNStoreResults = results => {
@@ -62,11 +62,11 @@ class SearchBar extends Component {
     if (formattedResults == 0) {
       // if no result is found
       this.unsetIsLoadingWithSearchMessage(NORESULTS);
-      this.props.setIsSearched(false);
+      this.props.setSearchQuery(null);
     } else {
       this.setState({ results: formattedResults });
       this.unsetIsLoadingWithSearchMessage();
-      this.props.setIsSearched(true);
+      this.props.setSearchQuery(this.state.searchValue);
     }
   };
 

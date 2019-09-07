@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Segment, Header, Dropdown } from "semantic-ui-react";
 import MovieCatalog from "../../src/components/movies/catalog/catalog";
+import MovieSearched from "../../src/components/movies/catalog/searched";
 
 const movieCategories = [
   {
@@ -27,9 +29,22 @@ const movieCategories = [
 
 const DEFAULTCATEGORY = "Popular";
 
-export default () => {
-  const [selectedCategory, setSelectedCategory] = useState(DEFAULTCATEGORY);
+const renderFullSearchResult = searchQuery => {
+  return (
+    <Segment basic>
+      <Header as="h2">Welcome to movies' catalog</Header>
+      <MovieSearched searchQuery={searchQuery} />
+    </Segment>
+  );
+};
 
+const movies = props => {
+  const [selectedCategory, setSelectedCategory] = useState(DEFAULTCATEGORY);
+  const router = useRouter();
+  const { searched } = router.query;
+  if (searched) {
+    return renderFullSearchResult(searched);
+  }
   return (
     <Segment basic>
       <Header as="h2">Welcome to movies' catalog</Header>
@@ -49,3 +64,5 @@ export default () => {
     </Segment>
   );
 };
+
+export default movies;

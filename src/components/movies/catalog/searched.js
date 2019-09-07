@@ -25,9 +25,9 @@ class SearchResults extends React.Component {
   fetchMoviesFromPage = async activePage => {
     this.setState({ activePage });
     // Every time we change the page number the api will be invoked to find the listing on that page
-    console.log("Fetching for page : ", activePage);
+    // the search term in props represents current query term
     getMovieSearch(
-      this.state.latestSearchTerm,
+      this.props.latestSearchTerm,
       this.storeSearchResults,
       activePage
     );
@@ -47,6 +47,27 @@ class SearchResults extends React.Component {
         </Segment>
       </>
     );
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.props.latestSearchTerm !== nextProps.latestSearchTerm ||
+      this.state.activePage !== nextState.activePage ||
+      this.state.moviesList !== nextState.moviesList
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Update the movie results when search Query is changed.
+    // The redux props have the latest data from searchbar so check the state against it
+    if (this.state.latestSearchTerm !== this.props.latestSearchTerm) {
+      this.setState({ latestSearchTerm: this.props.latestSearchTerm });
+      this.fetchMoviesFromPage(DEFAULTACTIVEPAGE);
+    }
   }
 }
 
