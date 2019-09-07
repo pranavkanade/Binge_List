@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Search, Icon } from "semantic-ui-react";
 import { getMovieSearch } from "../../api/search";
 import Link from "next/link";
+import { connect } from "react-redux";
+import { storeLatestSearchResults } from "../../redux/actions";
 
 const MAXRESULTCOUNT = 10;
 
@@ -11,7 +13,7 @@ const NORESULTS = "Sorry, no results found!! :(";
 
 const ENTERKEY = "Enter";
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   state = {
     isLoading: false,
     searchValue: "",
@@ -76,6 +78,10 @@ export default class SearchBar extends Component {
     } else {
       this.formatNStoreResults(data.results.slice(0, MAXRESULTCOUNT));
     }
+    this.props.storeLatestSearchResults({
+      latestSearchTerm: this.state.searchValue,
+      searchResults: data.results
+    });
   };
 
   searchResultRenderer = ({ movId, image, rating, title }) => (
@@ -119,3 +125,18 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+const mapDispatchToProps = {
+  storeLatestSearchResults
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);
