@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { getPopularMovies } from "../../api/movies";
 import Listing from "./listing";
 
 const DEFAULTACTIVEPAGE = 1;
@@ -44,6 +43,7 @@ class MovieCollection extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // Update the movie results when category is changed.
     if (this.props.category !== prevProps.category) {
       this.fetchMoviesFromPage(DEFAULTACTIVEPAGE);
     }
