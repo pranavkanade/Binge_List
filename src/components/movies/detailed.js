@@ -3,8 +3,6 @@ import Link from "next/link";
 import { getDetailedMovie, getMovieCredits } from "../../api/movies";
 import {
   Segment,
-  Dimmer,
-  Placeholder,
   Image,
   Grid,
   Header,
@@ -99,6 +97,7 @@ class Detailed extends Component {
                 {member.name}
               </Label>
             }
+            style={{ cursor: "pointer" }}
           />
         </Link>
       );
