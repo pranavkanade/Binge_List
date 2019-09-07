@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Card, Icon, Image, Header } from "semantic-ui-react";
+import { Card, Icon, Image, Header, Label } from "semantic-ui-react";
 
 const MovieCard = props => (
   <Link
@@ -16,6 +16,11 @@ const MovieCard = props => (
       />
       <Card.Content extra>
         <Header as="h4">{props.movie.title}</Header>
+        {props.movie.vote_average && (
+          <Label className="rating" attached="top right" color="black">
+            <Icon name="star" color="orange" /> {props.movie.vote_average}/10
+          </Label>
+        )}
       </Card.Content>
     </Card>
   </Link>

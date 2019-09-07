@@ -43,7 +43,7 @@ class Detailed extends Component {
       <Statistic.Group size="mini" fluid>
         <Statistic>
           <Statistic.Value>
-            <Icon name="star" color="yellow" /> {currentMovie.vote_average}
+            <Icon name="star" color="yellow" /> {currentMovie.vote_average}/10
           </Statistic.Value>
           <Statistic.Label>Rating</Statistic.Label>
         </Statistic>
