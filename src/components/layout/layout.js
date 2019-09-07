@@ -16,7 +16,7 @@ const layout = props => {
             <Grid.Column width="8" textAlign="center">
               <SearchBar setSearchQuery={setSearchQuery} />
             </Grid.Column>
-            <Grid.Column width="4" textAlign="left">
+            <Grid.Column width="4" textAlign="left" verticalAlign="middle">
               {searchQuery ? (
                 <Link
                   href={{
@@ -24,8 +24,9 @@ const layout = props => {
                     query: { searched: searchQuery }
                   }}
                   as={`/movies/searched/${searchQuery}`}>
-                  <a style={{ cursor: "pointer" }}>
-                    Show All search results <Icon name="arrow right" />
+                  <a style={{ cursor: "pointer", fontSize: "20px" }}>
+                    Show All search results{" "}
+                    <Icon name="arrow right" size="large" />
                   </a>
                 </Link>
               ) : null}
