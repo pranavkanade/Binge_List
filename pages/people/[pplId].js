@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "semantic-ui-react";
 import PeopleProfile from "../../src/components/profile";
 
 const people = props => {

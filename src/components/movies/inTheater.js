@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Button, Segment, Message, Header, Card } from "semantic-ui-react";
-import MovieCard from "../ui/movieCard";
+import { Button, Segment, Header } from "semantic-ui-react";
 import { getMoviesNowPlaying } from "../../api/movies";
 import Loader from "../ui/loader";
 import Listing from "../movies/catalog/listing";

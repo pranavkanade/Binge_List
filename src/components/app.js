@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Segment,
-  Container,
-  Header,
-  Button,
-  Divider
-} from "semantic-ui-react";
+import { Segment, Container, Header, Button } from "semantic-ui-react";
 import style from "../../static/styles/style.scss";
 import InTheaterBox from "./movies/inTheater";
 import PopularMovies from "./movies/popular";
