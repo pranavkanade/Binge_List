@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Segment, Message, Card } from "semantic-ui-react";
 import MovieCard from "../../ui/movieCard";
 import Loader from "../../ui/loader";
-import Pagination from "../../ui/pagination";
 
 const NUM_OF_MOVIES_IN_A_ROW = 4;
 
@@ -27,33 +26,15 @@ class MovieListing extends Component {
     );
   };
 
-  handlePaginationChange = async (e, { activePage }) => {
-    this.props.fetchMoviesFromPage(activePage);
-  };
-
   render() {
     return (
       <Segment basic>
-        <Segment basic>
-          <Pagination
-            activePage={this.props.activePage}
-            handlePaginationChange={this.handlePaginationChange}
-            totalPages={this.props.totalPages}
-          />
-        </Segment>
         {this.props.moviesList ? (
           this.renderMovieCards()
         ) : (
           // If data is yet to be fetched; Show loader
           <Loader />
         )}
-        <Segment basic>
-          <Pagination
-            activePage={this.props.activePage}
-            handlePaginationChange={this.handlePaginationChange}
-            totalPages={this.props.totalPages}
-          />
-        </Segment>
       </Segment>
     );
   }

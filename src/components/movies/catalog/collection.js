@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Listing from "./listing";
+import { Segment } from "semantic-ui-react";
+import Pagination from "../../ui/pagination";
 
 const DEFAULTACTIVEPAGE = 1;
 
@@ -18,10 +20,27 @@ class MovieCollection extends Component {
 
   render() {
     return (
-      <Listing
-        {...this.state}
-        fetchMoviesFromPage={this.fetchMoviesFromPage}
-      />
+      <>
+        <Segment basic>
+          <Pagination
+            activePage={this.state.activePage}
+            handlePaginationChange={(e, { activePage }) =>
+              this.fetchMoviesFromPage(activePage)
+            }
+            totalPages={this.state.totalPages}
+          />
+        </Segment>
+        <Listing {...this.state} />
+        <Segment basic>
+          <Pagination
+            activePage={this.state.activePage}
+            handlePaginationChange={(e, { activePage }) =>
+              this.fetchMoviesFromPage(activePage)
+            }
+            totalPages={this.state.totalPages}
+          />
+        </Segment>
+      </>
     );
   }
 

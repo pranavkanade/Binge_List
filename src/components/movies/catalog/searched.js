@@ -3,6 +3,7 @@ import Listing from "./listing";
 import { getMovieSearch } from "../../../api/search";
 import { Segment, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
+import Pagination from "../../ui/pagination";
 
 const DEFAULTACTIVEPAGE = 1;
 
@@ -40,9 +41,23 @@ class SearchResults extends React.Component {
           Showing search results for "{this.props.latestSearchTerm}"
         </Header>
         <Segment textAlign="center" basic>
+          <Pagination
+            activePage={this.state.activePage}
+            handlePaginationChange={(e, { activePage }) =>
+              this.fetchMoviesFromPage(activePage)
+            }
+            totalPages={this.state.totalPages}
+          />
           <Listing
             {...this.state}
             fetchMoviesFromPage={this.fetchMoviesFromPage}
+          />
+          <Pagination
+            activePage={this.state.activePage}
+            handlePaginationChange={(e, { activePage }) =>
+              this.fetchMoviesFromPage(activePage)
+            }
+            totalPages={this.state.totalPages}
           />
         </Segment>
       </>
