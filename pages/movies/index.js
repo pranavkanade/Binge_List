@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Segment, Header, Dropdown } from "semantic-ui-react";
 import MovieCatalog from "../../src/components/movies/catalog/catalog";
 import MovieSearched from "../../src/components/movies/catalog/searched";

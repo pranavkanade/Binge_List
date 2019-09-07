@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Menubar from "./menu";
+import Footer from "./footer";
 import { Container, Segment, Grid, Icon, Divider } from "semantic-ui-react";
 import SearchBar from "../ui/searchBar";
 
@@ -36,9 +37,7 @@ const layout = props => {
       </Segment>
       <Divider hidden />
       <Container>{props.children}</Container>
-      <Segment attached>
-        <h1>This is footer</h1>
-      </Segment>
+      <Footer />
     </div>
   );
 };
