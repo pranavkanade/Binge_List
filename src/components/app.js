@@ -16,7 +16,16 @@ import SearchBar from "./ui/searchBar";
 const app = () => {
   return (
     <Container className={style.App}>
-      <SearchBar />
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width="4" />
+          <Grid.Column width="8">
+            <SearchBar />
+          </Grid.Column>
+          <Grid.Column width="4" />
+        </Grid.Row>
+      </Grid>
+
       <br />
       <Segment attached color="green">
         <InTheaterBox />
