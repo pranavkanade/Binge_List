@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Link from "next/link";
 import { Menu, Container, Header } from "semantic-ui-react";
-
 export default class Menubar extends Component {
-  state = { activeItem: "movies" };
+  state = { activeItem: "" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -14,23 +12,19 @@ export default class Menubar extends Component {
       <Menu size="massive" stackable inverted color="orange" attached>
         <Container>
           <Menu.Menu>
-            <Link href="/">
-              <a className="item">Binge-List</a>
-            </Link>
+            <Menu.Item href="/">
+              <Header as="h1" style={{ color: "white" }}>
+                Binge-List
+              </Header>
+            </Menu.Item>
           </Menu.Menu>
           <Menu.Menu position="right">
             <Menu.Item
               name="movies"
+              href="/movies"
               active={activeItem === "movies"}
               onClick={this.handleItemClick}>
-              Movies
-            </Menu.Item>
-
-            <Menu.Item
-              name="tvShows"
-              active={activeItem === "tvShows"}
-              onClick={this.handleItemClick}>
-              TV Shows
+              Movie Catalog
             </Menu.Item>
           </Menu.Menu>
         </Container>

@@ -1,11 +1,12 @@
 import React from "react";
 import Menubar from "./menu";
+import { Container } from "semantic-ui-react";
 
 const layout = props => {
   return (
     <div>
       <Menubar />
-      {props.children}
+      <Container>{props.children}</Container>
     </div>
   );
 };
