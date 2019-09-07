@@ -46,6 +46,7 @@ export default class SearchBar extends Component {
     this.setState({ searchValue: value, results: null });
     // console.log("Changed Search : ", value);
     this.unsetIsLoadingWithSearchMessage();
+    this.props.setIsSearched(false);
   };
 
   formatNStoreResults = results => {
@@ -59,9 +60,11 @@ export default class SearchBar extends Component {
     if (formattedResults == 0) {
       // if no result is found
       this.unsetIsLoadingWithSearchMessage(NORESULTS);
+      this.props.setIsSearched(false);
     } else {
       this.setState({ results: formattedResults });
       this.unsetIsLoadingWithSearchMessage();
+      this.props.setIsSearched(true);
     }
   };
 
@@ -104,6 +107,7 @@ export default class SearchBar extends Component {
         aligned="centered"
         size="huge"
         fluid
+        placeholder="Search Movies ..."
         loading={this.state.isLoading}
         onKeyPress={this.handleEnterKeyPress}
         onSearchChange={this.handleSearchTextChange}
