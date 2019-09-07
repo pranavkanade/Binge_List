@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getPopularMovies } from "../../api/movies";
-import Listing from "./listing";
+import Listing from "./catalog/listing";
 
 class PopularMovies extends Component {
   state = {
