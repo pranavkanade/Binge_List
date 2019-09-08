@@ -1,4 +1,5 @@
-import { BASEAPI, APIKEY } from "../../global.config";
+import { BASEAPI } from "../../global.config";
+import { APIKEY } from "../../apiKey.tmdb";
 import { fetchData } from "./generic";
 
 // Here will only assemble the URL addresses to get the desired data
