@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing Index Page Test Movies in Theaters Renders correctly 1`] = `
+Array [
+  <h2
+    className="ui left aligned header"
+  >
+    Available in Theaters Now!
+    <button
+      className="ui orange basic right floated button"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Show All
+    </button>
+  </h2>,
+  <div
+    className="ui basic segment"
+  >
+    <div
+      className="ui basic segment"
+    >
+      <div
+        className="ui active transition visible inverted dimmer"
+        onClick={[Function]}
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="ui massive text loader"
+          >
+            Loading
+          </div>
+        </div>
+      </div>
+      <div
+        className="ui fluid placeholder"
+        style={
+          Object {
+            "height": 350,
+          }
+        }
+      >
+        <div
+          className="image"
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;

@@ -52,6 +52,7 @@ class PopularMovies extends Component {
         <Listing moviesList={this.processMovieList()} />
         <Segment basic textAlign="center">
           <Button
+            className="show-less"
             color="red"
             disabled={this.state.showCount <= DEFAULT_NUM}
             onClick={this.handleShowLess}
@@ -60,6 +61,7 @@ class PopularMovies extends Component {
             Show Less <Icon name="minus" />
           </Button>
           <Button
+            className="show-more"
             color="blue"
             disabled={this.state.showCount == this.state.moviesList.length}
             onClick={this.handleShowMore}
