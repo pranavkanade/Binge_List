@@ -1,10 +1,11 @@
 # Binge-List
 
-Minimal IMDB clone to browse information on movies and its cast members.
+[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/-QjLhRFF_oo/mq3.jpg?sqp=CMyO0usF&rs=AOn4CLCuq-5RDDdDWWQ8WHEyL1ud-sciFw)](https://www.youtube.com/watch?v=-QjLhRFF_oo)
 
-1. Using TMDB apis.
+(click above to see project in action)
 
-1. Have to copy api config for future reference - `/api.conf`
+
+> Minimal IMDB clone to browse information on movies and its cast members.
 
 ## Libraries used other than `React` and `Redux`
 
